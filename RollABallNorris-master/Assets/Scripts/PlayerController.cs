@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource pickupSource;
     public float speed;
     public Text countText;
     public Text winText;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        pickupSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         count = 0;
         SetCountText();
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count = count + 1;
+            pickupSource.Play();
             SetCountText();
         }
     }
@@ -42,7 +45,7 @@ public class PlayerController : MonoBehaviour
     void SetCountText ()
     {
         countText.text = "Count: " + count.ToString();
-        if (count >= 13)
+        if (count >= 12)
         {
             winText.text = "You Win!";
         }

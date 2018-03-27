@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotate : MonoBehaviour {
-
+public class rotate : MonoBehaviour
+{
     public float speed = 5.0f;
     private float zMax = 3f;
     private float zMin = -3f; //starting position
     private float angle = 20f;
     
     private int direction = 1; //positive to start 
-
+    
     // Update is called once per frame
     void Update()
     {
